@@ -103,7 +103,7 @@ def validate(token: str = Depends(oauth2_scheme)):
         raise HTTPException(status_code=400)
 
         
-    def validate(token: str = Depends(oauth2_scheme)):
+def validate(token: str = Depends(oauth2_scheme)):
     try:
         res = validate_locally(
             token,
