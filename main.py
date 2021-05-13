@@ -6,6 +6,8 @@ from fastapi.security import OAuth2PasswordBearer
 import httpx
 from starlette.config import Config
 
+from okta_jwt.jwt import validate_token as validate_locally
+
 
 # Load environment variables
 config = Config('.env')
@@ -99,3 +101,16 @@ def validate(token: str = Depends(oauth2_scheme)):
         return True
     else:
         raise HTTPException(status_code=400)
+
+        
+    def validate(token: str = Depends(oauth2_scheme)):
+    try:
+        res = validate_locally(
+            token,
+            config('OKTA_ISSUER'),
+            config('OKTA_AUDIENCE'),
+            config('OKTA_CLIENT_ID')
+        )
+        return bool(res)
+    except Exception:
+        raise HTTPException(status_code=403)
