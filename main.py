@@ -124,5 +124,5 @@ def validate(token: str = Depends(oauth2_scheme)):
 
 
 if __name__ == "__main__":
-    uvicorn.run("genius-api-kakashi:app", host="0.0.0.0", port=Port, reload=True, access_log=True, log_level="info")
+    uvicorn.run("web:genius-api-kakashi", host="0.0.0.0", port=Port, reload=True, access_log=True, log_level="info")
 
