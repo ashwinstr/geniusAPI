@@ -2,16 +2,17 @@ import os
 import aiohttp
 import json
 import lyricsgenius
-from userge import userge, Message
+import FastApi
 
+app = FastApi()
 
 genius = lyricsgenius.Genius("2_UkgCR50RbUHF9rQMwemGbAj0JCWKesi8RWwsW31kKGrIlWzCvd9G_lVajRSszQ")
 
 
-@userge.on_message(
+@app.on_message(
     filters.commands("glyrics")
 )
-async def g_lyrics(message: Message):
+async def g_lyrics(message):
     name = "eminem higher"
     data = {"searchTerm": name}
     async with aiohttp.request(
