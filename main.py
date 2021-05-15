@@ -2,9 +2,9 @@ import os
 import aiohttp
 import json
 import lyricsgenius
-from fastapi import FastApi
+from fastapi import FastAPI
 
-app = FastApi()
+app = FastAPI()
 
 genius = lyricsgenius.Genius("2_UkgCR50RbUHF9rQMwemGbAj0JCWKesi8RWwsW31kKGrIlWzCvd9G_lVajRSszQ")
 
