@@ -2,7 +2,7 @@ import os
 import aiohttp
 import json
 import lyricsgenius
-import FastApi
+from fastapi import FastApi
 
 app = FastApi()
 
